@@ -44,5 +44,77 @@ namespace prcinter
         }
     }
 }
+/*-----------------------------------------------------------------------------------------*/
+/* Step 2 */
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-----------------------
+namespace prcinter
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Employee e = new Employee();
+            e.Prop1 = "Sujit";
+            Console.WriteLine("Employee name : "+e.Prop1);
+
+            e.Prop2=1;
+            Console.WriteLine("EmpNo : " + e.Prop2);
+            Console.ReadLine();
+
+        }
+
+        class Employee
+        {
+            private string empname;
+            public string Prop1
+            {
+                set
+                {
+                    if(value!=null)
+                    {
+                        empname = value;                                      
+                    }
+
+                    else
+                        Console.WriteLine("No blank space allowed");
+                }
+
+                get
+                {
+                    return empname;
+                }
+            }
+
+            private int empno; // field
+            public int Prop2 // Property
+            {
+                set
+                {
+                    if (value > 0)
+                    {
+                        empno = value;
+                    }
+                    else
+                        Console.WriteLine("must be greater than 0 i.e positive");
+                }
+
+                get
+                {
+                    return empno;
+                }
+            }
+
+           
+        }
+    }
+}
+/* --------------------------------------------------------------------------------------------------------- */
+
+
+
+/* --------------------------------------------------------------------------------------------------------- */
