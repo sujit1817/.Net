@@ -232,6 +232,132 @@ namespace prcinter
 
 
 /* --------------------------------------------------------------------------------------------------------- */
+/* Step4 */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace prcinter
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Employee e = new Employee();
+            e.Prop1 = "Sujit";
+            Console.WriteLine("Employee name : "+e.Prop1);
+
+            e.Prop2=1;
+            Console.WriteLine("Employee No : " + e.Prop2);
+
+            e.Prop3 = 12346;
+            Console.WriteLine("Employee Basic : "+e.Prop3);
+
+            /* Console.WriteLine(e.Prop3=6000);
+             * this is also ok
+             */
+
+            e.Prop4 =10;
+            Console.WriteLine("Employee Deptno : "+e.Prop4);
+
+            Console.WriteLine("Net salary : "+e.GetNetSalary());
+            Console.ReadLine();
+
+        }
+
+        class Employee
+        {
+            private string empname;
+            public string Prop1
+            {
+                set
+                {
+                    if(value!=null)
+                    {
+                        empname = value;                                      
+                    }
+
+                    else
+                        Console.WriteLine("No blank space allowed");
+                }
+
+                get
+                {
+                    return empname;
+                }
+            }
+
+            private int empno; // field
+            public int Prop2 // Property
+            {
+                set
+                {
+                    if (value > 0)
+                    {
+                        empno = value;
+                    }
+                    else
+                        Console.WriteLine("must be greater than 0 i.e positive");
+                }
+
+                get
+                {
+                    return empno;
+                }
+            }
+
+            private decimal Basic;
+            public decimal Prop3
+            {
+                set 
+                {
+                    if (0< value && value < 123465)
+                    {
+                        Basic = value;
+                    }
+                    else
+                        Console.WriteLine("Must be in the speicfied range");
+                }
+
+                get
+                {
+                   return Basic;
+                }
+            }
+
+            private short DeptNo;
+            public short Prop4
+            {
+                set
+                {
+                    if(value>0)
+                    {
+                        DeptNo = value;
+                    }
+                    else
+                        Console.WriteLine("DeptNO need to be more than 0 ");
+                }
+
+                get
+                {
+                    return DeptNo;
+                }
+            }
+
+            public decimal GetNetSalary()
+            {
+                decimal Basic = 20000;
+                decimal salary = Basic + 10000;
+
+                return salary;
+            }
+        }
+    }
+}
+
 
 /* --------------------------------------------------------------------------------------------------------- */
 
