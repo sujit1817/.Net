@@ -1,1 +1,188 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
+namespace Homework_inheritence
+{
+    class Program
+    {
+        static void Main()
+        {
+            GeneralManager gm = new GeneralManager(Name:"Sujit",Deptno : 4,Basic:50000);
+            Console.WriteLine(gm.ToString());
+            Console.WriteLine("Net Salary :" + gm.CalcNetSalary());
+
+            Manager gm1 = new GeneralManager(Name:"Yogesh", Deptno: 5, Basic:40000);
+            Console.WriteLine(gm1.ToString());
+            Console.WriteLine("Net Salary :" + gm1.CalcNetSalary());
+
+            CEO c = new CEO(Name:"PremKumar", Deptno:5, Basic: 80000);
+            Console.WriteLine(c.ToString());
+            Console.WriteLine("Net Salary :" + c.CalcNetSalary());
+            Console.ReadLine();
+        }
+    }
+
+    public interface IDbFunctions
+    {
+    }
+
+    public abstract class Employee
+    {
+        override
+            public string ToString()
+        {
+            return "Employee Number : " + this.EmpNo + "\n" + "Employee Name : " + this.Name + "\n" + "Employee Salary : " + this.Basic + "\n" + "Dept No :" + this.Deptno;
+        }
+
+        private string Name;
+        public string Name1
+        {
+            set
+            {
+                if (value != null)
+                    Name = value;
+                else
+                    Console.WriteLine("name cannot be null");
+            }
+            get
+            {
+                return Name;
+            }
+        }
+        private short Deptno;
+        public short Deptno1
+        {
+            set
+            {
+                if (value > 0)
+                    Deptno = value;
+                else
+                    Console.WriteLine("deptno should be greater than 0");
+            }
+            get
+            {
+                return Deptno;
+            }
+        }
+
+        public int EmpNo { get; }
+
+        public abstract decimal Basic { get; set; }
+
+        static int count=0;
+        public Employee(String Name="Someone", int EmpNo=1, short Deptno=1)
+        {
+            count++;
+            this.Name1 = Name;
+            this.EmpNo = count;
+            this.Deptno1 = Deptno;
+        }
+
+        public abstract decimal CalcNetSalary();
+    }
+
+    public class Manager : Employee
+    {
+
+        private string Designation;
+        public string Designation1
+        {
+            set
+            {
+                if (value != null)
+                    Designation = value;
+                else
+                    Console.WriteLine("name cannot be null");
+            }
+            get
+            {
+                return Designation;
+            }
+        }
+        public decimal basic;
+
+        public override decimal Basic { 
+            set {
+                if (value > 10000)
+                    basic = value;
+                else
+                    Console.WriteLine("Invalid Input");
+            }  
+            get { return basic; } }
+
+        public override decimal CalcNetSalary()
+        {
+            decimal hra;
+            hra = basic * (decimal)10 / 100;
+            decimal da = (decimal)73 / 100 * basic;
+            decimal gs = basic + hra + da;
+            decimal tax = (decimal)30 / 100 * gs;
+            decimal netSal = gs - tax;
+            return netSal;
+        }
+
+        public Manager(String Name = "Someone", int EmpNo = 1, short Deptno = 1, decimal Basic=1):base(Name, EmpNo, Deptno)
+        {
+            this.Basic = Basic;
+        }
+    }
+
+    public class GeneralManager : Manager
+    {
+        public String Perks1 { get; set; }
+
+        public GeneralManager(String Name = "Someone", int EmpNo = 1, short Deptno = 1, decimal Basic = 1) :base(Name, EmpNo, Deptno, Basic)
+        {
+            this.Basic = Basic;
+        }
+
+        public override decimal CalcNetSalary()
+        {
+            decimal hra;
+            hra = basic * (decimal)10 / 100;
+            decimal da = (decimal)73 / 100 * basic;
+            decimal gs = basic + hra + da;
+            decimal tax = (decimal)30 / 100 * gs;
+            decimal netSal = gs - tax;
+            return netSal;
+        }
+
+    }
+
+    public class CEO : Employee
+    {
+
+        private decimal basic;
+
+        public override decimal Basic
+        {
+            set
+            {
+                if (value > 10000)
+                    basic = value;
+                else
+                    Console.WriteLine("Invalid Input");
+            }
+            get { return basic; }
+        }
+
+        public sealed override decimal CalcNetSalary()
+        {
+            decimal hra;
+            hra = basic * (decimal)10 / 100;
+            decimal da = (decimal)73 / 100 * basic;
+            decimal gs = basic + hra + da;
+            decimal tax = (decimal)30 / 100 * gs;
+            decimal netSal = gs - tax;
+            return netSal;
+        }
+
+        public CEO(String Name = "Someone", int EmpNo = 1, short Deptno = 1, decimal Basic = 1) : base(Name, EmpNo, Deptno)
+        {
+            this.Basic = Basic;
+        }
+    }
+}
