@@ -213,3 +213,46 @@ namespace RefAndValueTypesPractice
 }
 //same code using out/
 -------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace RefAndValueTypesPractice
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int i = 123;
+            int j;
+            Init(out i, out j);
+            Console.WriteLine(i);
+            Console.WriteLine(j);
+            swap(ref i, ref j);
+            Console.WriteLine("Lets Swap");
+            Console.WriteLine(i);
+            Console.WriteLine(j);
+            Console.ReadLine();
+        }
+        static void Init(out int i, out int j)
+        {
+            //the initial value is discarded
+            // when we use out
+            i = 100;
+            j = 200;
+            //out variables MUST be initialized in the function
+        }
+       static void swap(ref int i,ref int j)
+        {
+            int temp = i;
+            i = j;
+            j = temp;
+        }
+
+    }
+}
+------------------------------------------
+
+------------------------------------------
