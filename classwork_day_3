@@ -100,5 +100,116 @@ namespace RefAndValueTypesPractice
     }
 }
 -----------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
+namespace RefAndValueTypesPractice
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Class1 o = new Class1();
+            o.i = 100;
+            
+            Console.WriteLine("--------");
+            DoSomething1(o);
+            Console.WriteLine(o.i);
+            Console.Beep();
+            Console.Beep();
+
+            Console.WriteLine("--------");
+         
+            Console.ReadLine();
+        }
+
+        static void DoSomething1(Class1 o)
+        {
+            o.i = 200;
+          
+        }
+        public class Class1
+        {
+            public int i;
+        }
+    }
+}
+--------------------------
+ref
+-------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace RefAndValueTypesPractice
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Class1 o = new Class1();
+            o.i = 100;
+            //DoSomething1(o);
+         /*   DoSomething2(o);*/
+         // when using ref in method also need to specify in method calling in main
+            DoSomething3(ref o);
+            Console.WriteLine(o.i);
+            Console.ReadLine();
+        }
+
+        static void DoSomething3(ref Class1 obj)  //try with out also instead of ref
+        {
+            //changes made in func (obj pointing to some other block) is reflected in calling code o
+            obj = new Class1();
+            obj.i = 200;
+        }
+        public class Class1
+        {
+            public int i;
+        }
+    }
+}
+-----------------------
+out
 -----------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace RefAndValueTypesPractice
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Class1 o = new Class1();
+            o.i = 100;
+            //DoSomething1(o);
+         /*   DoSomething2(o);*/
+         // when using ref in method also need to specify in method calling in main
+            DoSomething3(out o);
+            Console.WriteLine(o.i);
+            Console.ReadLine();
+        }
+
+        static void DoSomething3(out Class1 obj)  //try with out also instead of ref
+        {
+            //changes made in func (obj pointing to some other block) is reflected in calling code o
+            obj = new Class1();
+            obj.i = 200;
+        }
+        public class Class1
+        {
+            public int i;
+        }
+    }
+}
+//same code using out/
+-------------------------------------------
