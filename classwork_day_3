@@ -1,0 +1,35 @@
+/*  RefAndValueTypesPractice1 */
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace RefAndValueTypesPractice
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Class1 o1 = new Class1();
+            Class1 o2 = new Class1();
+            o1.i = 100;
+            o2.i = 200;
+            Console.WriteLine("o1 "+o1.i+" | o2 "+o2.i);
+            o1 = o2;
+            Console.WriteLine("o1 and o2 are the objects i.e. reference type");
+            Console.WriteLine("o1 " + o1.i + " | o2 " + o2.i);
+            o2.i = 300;
+            Console.WriteLine("as we o1 is refering o2 . The changes made in o2 will be reflected in 01");
+            Console.WriteLine("o1 " + o1.i + " | o2 " + o2.i);
+
+
+            Console.ReadLine();
+        }
+
+        public class Class1
+        {
+            public int i;
+        }
+    }
+}
