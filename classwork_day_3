@@ -332,5 +332,120 @@ namespace ArraysPractice
     }
 }
 --------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ArraysPractice
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] arr = new int[5];
+            //arr[0] ... arr[4] from index 0 to 4
+            int j = 10;
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.WriteLine("Enter for index {0} :j = {1} ", i, j++);
+                Console.WriteLine("Enter for index : {0}", i);
+                Console.ReadLine();
+            }
+            string[] cars = { "Volvo", "BMW", "Ford", "Mazda" };
+            Console.WriteLine("Length of the cars Array : "+cars.Length);
+            for (int i = 0; i < cars.Length; i++)
+            {
+                Console.WriteLine(cars[i]);
+                Console.ReadLine();
+            }
+
+
+            int[] myNumbers = { 5, 1, 8, 9 };
+            Array.Sort(myNumbers);
+            foreach (int i in myNumbers)
+            {
+                Console.WriteLine(i);
+                Console.ReadLine();
+            }
+
+        }
+    }
+}
+--------------------------------------------------------------
+Array prc
+------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ArraysPractice
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] arr = new int[5];
+            //arr[0] ... arr[4] from index 0 to 4
+            int j = 10;
+            int k =5;
+
+          
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.WriteLine("Enter for index {0} :j = {1} k= {2} ", i, j++,k);
+                Console.WriteLine("Enter for index : {0}", i);
+                Console.ReadLine();
+            }
+            string[] cars = { "Volvo", "BMW", "Ford", "Mazda" };
+            Console.WriteLine("Length of the cars Array : "+cars.Length);
+            for (int i = 0; i < cars.Length; i++)
+            {
+                Console.WriteLine(cars[i]);
+                Console.ReadLine();
+            }
+
+
+            int[] myNumbers = { 5, 1, 8, 9 };
+            Array.Sort(myNumbers);
+            foreach (int i in myNumbers)
+            {
+                Console.WriteLine(i);
+                Console.ReadLine();
+            }
+
+        }
+    }
+}
+-------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ArrayAssign
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] weekDays;
+
+            weekDays=new string[] {"Sun", "Mon", "Tue", "Wed",
+                                       "Thu", "Fri", "Sat"};
+            // Displaying Elements of array
+            foreach (String day in weekDays)
+                Console.Write(day + " ");
+            Console.ReadLine();
+
+        }
+    }
+}
 
 
