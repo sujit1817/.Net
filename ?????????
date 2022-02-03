@@ -35,3 +35,36 @@ namespace ValueTypesPractice
         }
     }
 }
+--------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace NullableTypesPractice
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int? i=null;
+
+            int j;
+
+            if (i != null)
+                j = (int)i;
+            else 
+                j = 0;
+
+
+           
+            j = i ?? 123;
+
+
+            Console.WriteLine(j);
+            Console.ReadLine();
+           
+        }
+    }
+}
