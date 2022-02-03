@@ -361,6 +361,154 @@ namespace prcinter
 
 /* --------------------------------------------------------------------------------------------------------- */
 
+/- Auto generated empno -/
+// step - 5
+
+-------------------------------------------------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Assignment
+{
+    class Program
+    {
+        static void Main(string[] args)
+        { 
+            
+            Employee emp = new Employee();
+            Employee emp1 = new Employee();
+            Employee emp2 = new Employee();
+            Employee emp3 = new Employee();
+            Employee emp4 = new Employee();
+
+            emp.setAll("Yawgyaa",8000,25);
+            emp1.setAll("premkumar",8000,30);
+            emp2.setAll("sujit",60000,40);
+            emp3.setAll("vinayak",50000,450);
+            emp4.setAll("vaibhav",70000,50);
+
+            Console.WriteLine("1st employee = " +emp.empno);
+            Console.WriteLine("2nd employee = " + emp1.empno);
+            Console.WriteLine("3rd employee = " + emp2.empno);
+            Console.WriteLine("4th employee = " + emp3.empno);
+            Console.WriteLine("5th employee = " + emp4.empno);
+
+
+            Console.ReadLine();
+            
+        }
+
+        class Employee
+        {
+            public int empno; // field
+            private string empname;
+            private decimal Basic;
+            private short DeptNo;
+            private static int temp;
+
+            public Employee()
+            {
+                this.empno = ++temp;
+            }
+
+            public void setAll(String empname, decimal Basic, short DeptNo)
+            {
+                this.empname = empname;
+                this.Basic = Basic;
+                this.DeptNo = DeptNo;
+
+            }
+
+
+            public string Prop1
+            {
+                set
+                {
+                    if (value != null)
+                    {
+                        empname = value;
+                    }
+
+                    else
+                        Console.WriteLine("No blank space allowed");
+                }
+
+                get
+                {
+                    return empname;
+                }
+            }
+
+
+            public int Prop2 // Property
+            {
+                set
+                {
+                    if (value > 0)
+                    {
+                        empno = value;
+                    }
+                    else
+                        Console.WriteLine("must be greater than 0 i.e positive");
+                }
+
+                get
+                {
+                    return empno;
+                }
+            }
+
+            public decimal Prop3
+            {
+                set
+                {
+                    if (0 < value && value < 123465)
+                    {
+                        Basic = value;
+                    }
+                    else
+                        Console.WriteLine("Must be in the speicfied range");
+                }
+
+                get
+                {
+                    return Basic;
+                }
+            }
+
+
+            public short Prop4
+            {
+                set
+                {
+                    if (value > 0)
+                    {
+                        DeptNo = value;
+                    }
+                    else
+                        Console.WriteLine("DeptNO need to be more than 0 ");
+                }
+
+                get
+                {
+                    return DeptNo;
+                }
+            }
+
+            public decimal GetNetSalary()
+            {
+                decimal Basic = 20000;
+                decimal salary = Basic + 10000;
+
+                return salary;
+            }
+        }
+    }
+}
+
 /* --------------------------------------------------------------------------------------------------------- */
 
 
