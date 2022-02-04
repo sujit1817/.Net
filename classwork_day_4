@@ -470,6 +470,53 @@ namespace CollectionsExample
 
   
 }
+---------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ListExamplePrc
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            /* List<int> obj = new List<int>();
+             obj.Add(10);
+             obj.Remove(10);
+
+             foreach(int item in obj)
+             {
+                 Console.WriteLine(item);
+
+             }
+             Console.ReadLine();
+             Console.Beep();
+            */
+            List<Employee> obj = new List<Employee>();
+
+            obj.Add(new Employee { Empno = 1, Name = " Sujit" });
+            obj.Add(new Employee { Empno = 2, Name = " Vijay" });
+            obj.Add(new Employee { Empno = 3, Name = " Tejas" });
+            obj.Add(new Employee { Empno = 4, Name = " Akash" });
+
+            foreach(Employee item in obj)
+            {
+                Console.WriteLine(item.Empno+" "+item.Name);
+            }
+            Console.ReadLine();
+        }
+
+        public class Employee
+        {
+            public string Name { get; set; }
+            public int Empno { get; set; }
+        }
+    }
+}
+
 
 
 ----------------------------------------------------------------------
