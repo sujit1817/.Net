@@ -379,4 +379,52 @@ namespace Collection
         }
     }
 }
----------------------------------------------------------------------------
+-----------------------------------------------------
+Arraylist
+-----------------------------------------------------
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Collections;
+
+namespace Collection
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            ArrayList obj = new ArrayList();
+
+            obj.Add(10);
+            obj.Add(20);
+            obj.Add("Vikram");
+            obj.Add(10.123);
+            obj.Add("sujit");
+
+            // obj.Remove(10);
+            // obj.RemoveAt(1); //index
+            //    obj.RemoveRange(0, 3);
+            //    obj.Clear();
+            obj.Insert(0, "aa");
+
+            foreach (object item in obj)
+            {
+                Console.WriteLine(item);
+            }
+
+
+            Console.WriteLine(obj.Count); // gives no of element
+            Console.ReadLine();
+
+
+        }
+    }
+}
+----------------------------------------------------------------------
+
+
+----------------------------------------------------------------------
