@@ -347,6 +347,36 @@ namespace ExceptionPrc
             }
         }
     }
-
-
 }
+
+-------------------------------------------
+Collection
+-------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Collection
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+                int a = 3;
+                int b = 0;
+                int div = a / b;
+            }
+            catch (DivideByZeroException   de)
+            {
+                Console.WriteLine("Exceptoion handled");            
+                Console.Read();
+            }
+
+        }
+    }
+}
+---------------------------------------------------------------------------
