@@ -1,0 +1,245 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Assignment3_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Console.WriteLine("Enter the no. of employee");
+            int n = int.Parse(Console.ReadLine());
+
+            Employee[] emp = new Employee[n];
+
+            for (int i = 0; i < emp.Length; i++)
+            {
+                emp[i] = new Employee();
+                Console.WriteLine("Enter Emp No:-");
+                emp[i].Empno = int.Parse(Console.ReadLine());
+                Console.WriteLine("Enter Emp Name:-");
+                emp[i].Empnm = Console.ReadLine();
+                Console.WriteLine("Enter Emp Salary:-");
+                emp[i].Salary = int.Parse(Console.ReadLine());
+            }
+            int max = emp[0].Salary;
+            int j = 0;
+
+            for (int i = 0; i < emp.Length; i++)
+            {
+
+                if (max < emp[i].Salary)
+                {
+                    max = emp[i].Salary;
+                    j = 0;
+                }
+            }
+            Console.WriteLine("-----------------------------------------------------");
+            Console.WriteLine("Details of Employee with Highest Salary");
+            Console.WriteLine("-----------------------------------------------------");
+            Console.WriteLine("Employee No :-   " + emp[j].Empno);
+            Console.WriteLine("Employee Name :- " + emp[j].Empnm);
+            Console.WriteLine("Employee No :-   " + emp[j].Salary);
+            Console.WriteLine("-----------------------------------------------------");
+
+            Console.WriteLine("Enter the Empno to fetch Employee details");
+
+            int e = int.Parse(Console.ReadLine());
+            for (int i = 0; i < emp.Length; i++)
+            {
+
+                if (e == emp[i].Empno)
+                {
+                    Console.WriteLine("-----------------------------------------------------");
+                    Console.WriteLine("Employee No :-   " + emp[i].Empno);
+                    Console.WriteLine("Employee Name :- " + emp[i].Empnm);
+                    Console.WriteLine("Employee No :-   " + emp[i].Salary);
+                    Console.WriteLine("-----------------------------------------------------");
+                    break;
+                }
+            }
+
+            Console.ReadLine();
+        }
+    }
+
+    class Employee
+    {
+        public int Empno { set; get; }
+        public String Empnm { set; get; }
+
+        public int Salary { set; get; }
+
+    }
+}
+--------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Assignment3._3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Students[] arr = new Students[5];
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.WriteLine("Enter Details of Student no. {0} ", i + 1);
+                Console.WriteLine("Enter Name");
+                String n = Console.ReadLine();
+                Console.WriteLine("Enter Roll NO");
+                int r = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter Marks");
+                decimal m = Convert.ToDecimal(Console.ReadLine());
+                arr[i] = new Students(n, r, m);
+            }
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.WriteLine("-----------------------------------------------------");
+                Console.WriteLine("Details of Student {0} are :-", i + 1);
+                Console.WriteLine("-----------------------------------------------------");
+                Console.WriteLine("Name is {0}", arr[i].fname);
+                Console.WriteLine();
+                Console.WriteLine("Roll no is {0}", arr[i].rollNo);
+                Console.WriteLine();
+                Console.WriteLine("Mark is {0}", arr[i].marks);
+                Console.WriteLine("-----------------------------------------------------");
+
+            }
+            Console.ReadLine();
+
+        }
+    }
+
+    public struct Students
+    {
+
+        public string fname;
+        public int rollNo;
+        public decimal marks;
+        public string Fname
+        {
+            set
+            {
+                if (value.Equals(""))
+                {
+                    Console.WriteLine("name cant be null");
+                }
+                else
+                {
+                    fname = value;
+                }
+            }
+            get
+            {
+                return fname;
+            }
+        }
+
+        public int RollNo
+        {
+            set
+            {
+                if (value < 0)
+                {
+                    Console.WriteLine("roll no cant be in minus");
+                }
+                else
+                {
+                    rollNo = value;
+                }
+            }
+            get
+            {
+                return rollNo;
+            }
+        }
+
+        public Decimal Marks
+        {
+            set
+            {
+                if (value < 0)
+                {
+                    Console.WriteLine("marks no cant be in minus");
+                }
+                else
+                {
+                    marks = value;
+                }
+            }
+
+            get
+            {
+                return marks;
+            }
+        }
+
+        public Students(String fname, int rollNo, decimal marks)
+        {
+            this.fname = fname;
+            this.rollNo = rollNo;
+            this.marks = marks;
+        }
+    }
+}
+
+--------------------------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Assignment3._2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            {
+                Console.WriteLine("Enter no. of batches");
+                int b = int.Parse(Console.ReadLine());
+
+                int[][] arr = new int[b][];
+
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    Console.WriteLine("Enter no. of students for batch {0} ", i + 1);
+
+                    int s = int.Parse(Console.ReadLine());
+                    arr[i] = new int[s];
+
+                    for (int j = 0; j < arr[i].Length; j++)
+                    {
+                        Console.WriteLine("Enter mark of student{0} ", j + 1);
+                        arr[i][j] = int.Parse(Console.ReadLine());
+
+                    }
+
+                }
+
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    for (int j = 0; j < arr[i].Length; j++)
+                    {
+                        Console.WriteLine("Student batch no: {0}    roll no: {1}    marks: {2} ", i + 1, j + 1, arr[i][j]);
+                    }
+                }
+                Console.ReadLine();
+            }
+        }
+    }
+}
