@@ -1,0 +1,75 @@
+--------------------------------------
+C# Dictionary<TKey, TValue>
+-----------------------------
+Theory
+It stores values on the basis of key. It contains unique keys only. By the help of key, we can easily search or remove elements.
+It is found in System.Collections.Generic namespace.
+
+-- stores elements using Add() method\
+-- iterates elements using for-each loop
+--KeyValuePair class to get key and value.
+
+
+--------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AssignmentDay4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Dictionary<int, string> names = new Dictionary<int, string>();
+            names.Add(1, "Sujit");
+            names.Add(2, "Vijay"); 
+            names.Add(3, "Rudradesh");
+            names.Add(4, "Deven");
+            foreach (KeyValuePair<int, string> item in names)
+            {
+                Console.WriteLine(item.Key + " " + item.Value);
+            }
+            Console.ReadLine();
+        }
+    }
+}
+-------------------------------------------------------------------
+SortedDictionary gives sorted o/p
+
+C# SortedDictionary<TKey, TValue> class uses the concept of hashtable. It stores values on the basis of key. It contains unique keys and 
+maintains ascending order on the basis of key. 
+By the help of key, we can easily search or remove elements. It is found in System.Collections.Generic namespace.
+--------------------------------------------------------------------
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AssignmentDay4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            SortedDictionary<int, string> names = new SortedDictionary<int, string>();
+            names.Add(1, "Sujit");
+            names.Add(5, "Vijay"); 
+            names.Add(3, "Rudradesh");
+            names.Add(4, "Deven");
+            foreach (KeyValuePair<int, string> item in names)
+            {
+                Console.WriteLine(item.Key + " " + item.Value);
+            }
+            Console.ReadLine();
+        }
+    }
+}
+
+
+
+
