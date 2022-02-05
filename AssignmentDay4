@@ -1,3 +1,5 @@
+// pending..........
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,3 +34,210 @@ namespace AssignmentDay4_3
     }
 }
 --------------------------------------------------------------
+/*
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AssignmentDay4
+{
+    class Program
+    {
+        static void Main(string[] args)
+
+        {
+            //single generic
+            GenericClass<String> obj = new GenericClass<String>("Yogesh");
+            obj.display();
+            Employee emp = new Employee("subodh", 123, 60000);
+            GenericClass<Employee> obj2 = new GenericClass<Employee>(emp);
+            obj2.display();
+
+            //Double generic
+            DoubleGeneric<String, Int32> obj1 = new DoubleGeneric<String, Int32>("Swati", 1);
+            obj1.display();
+
+
+            Dictionary<int, Employee> dict = new Dictionary<int, Employee>();
+
+            String a = Console.ReadLine();
+            if (a == "sujit")
+            {
+                Console.WriteLine("string can be compared");
+            }
+
+
+            Employee[] emparr = new Employee[5];
+
+            emparr[0] = new Employee("vineet", 256, 60000);
+            emparr[1] = new Employee("sujit", 56, 75000);
+            emparr[2] = new Employee("patil", 780, 84000);
+            emparr[3] = new Employee("vivek", 562, 54000);
+            emparr[4] = new Employee("Somnath", 673, 58000);
+
+            
+            //covert array into list 
+            List<Employee> list = emparr.ToList();
+
+            foreach (Employee item in list)
+            {
+                Console.WriteLine(item);
+            }
+
+            //convert list into array
+            Employee[] emparr1 = list.ToArray();
+
+
+
+
+            // Employee dictionary 
+            bool con = false;
+            int keyno = 0;
+            int ctr = 0;
+            do
+            {
+                bool con1 = false;
+                Console.WriteLine("enter {0} employee name", ++ctr);
+                String name = Console.ReadLine();
+                do
+                {
+                    try
+                    {
+                        Console.WriteLine("enter {0} employee id", ctr);
+                        int id = int.Parse(Console.ReadLine());
+                        Console.WriteLine("enter {0} employee sal", ctr);
+                        decimal sal = decimal.Parse(Console.ReadLine());
+                        dict.Add(keyno = keyno + 10, new Employee(name, id, sal));
+                        con1 = false;
+                    }
+                    catch
+                    {
+                        Console.WriteLine("only numbers are allowed in id and sal");
+                        con = true;
+                    }
+                } while (con1 != true);
+
+                con = true;
+
+
+                String temp;
+                Console.WriteLine("------------you want to add one more employee (yes/no)------------");
+                temp = Console.ReadLine();
+                do
+                {
+                    if (temp == "no")
+                    {
+                        con = false;
+                        break;
+                    }
+                    else if (temp == "yes")
+                    {
+                        con = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("enter valid input (yes/no)");
+                        temp = Console.ReadLine();
+                    }
+                } while (temp != "yes");
+            } while (con != false);
+
+            foreach (KeyValuePair<int, Employee> item in dict)
+            {
+                Console.WriteLine(item);
+            }
+
+            // highest salary
+            Employee AmirAdmi = null;
+
+
+            for (int i = 0; i < dict.Count() - 1; i++)
+            {
+                if (dict.ElementAt(i).Value.sal < dict.ElementAt(i + 1).Value.sal)
+                {
+                    AmirAdmi = dict.ElementAt(i + 1).Value;
+                };
+            }
+
+
+            Console.WriteLine("Employee with highest sal");
+            Console.WriteLine(AmirAdmi);
+
+            Console.ReadLine();
+
+        }
+    }
+
+
+    class Employee
+    {
+        public String name;
+        public int id;
+        public decimal sal;
+
+        public Employee()
+        {
+            name = "default";
+            id = 0;
+            sal = 0;
+        }
+        public Employee(String name, int id, decimal sal)
+        {
+            this.name = name;
+            this.id = id;
+            this.sal = sal;
+        }
+
+        public decimal annualSal()
+        {
+            decimal annual = sal * 12;
+            return annual;
+        }
+
+        public override String ToString()
+        {
+            return name + " " + id + " " + sal + " ";
+        }
+    }
+    class GenericClass<T>
+    {
+        T par;
+
+        public GenericClass() { }
+        public GenericClass(T par)
+        {
+            this.par = par;
+        }
+        public void display()
+        {
+            Console.WriteLine("in single generic parameter class");
+            Console.WriteLine("par = " + par);
+        }
+
+    }
+
+    class DoubleGeneric<T, G>
+    {
+        T name;
+        G id;
+
+        public DoubleGeneric() { }
+        public DoubleGeneric(T name, G id)
+        {
+            this.name = name;
+            this.id = id;
+        }
+
+        public void display()
+        {
+            Console.WriteLine("in double generic parameter class");
+            Console.WriteLine("name = " + name + " id = " + id);
+        }
+    }
+}
+
+
+
+*/
