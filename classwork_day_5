@@ -128,5 +128,70 @@ namespace DelegatePrc
     }
 ---------------------------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DelegatePrc
+{
+    /*   public delegate void Del1();*/
+    //delegate with no papameters is defined.
+
+    public delegate void Del1();
+    public class Program
+    {
+        static void Main()
+        {
+            Del1 objDel = Display; 
+         // obj = methodname without ()
+            objDel();
+            //Display called
+
+            Console.WriteLine();
+            Console.WriteLine();
+            objDel += Show;
+            objDel();
+            //after calling it will go to display first then to show
+            /*Display called
+            Show called
+             */
+
+            Console.WriteLine();
+            Console.WriteLine();
+            objDel += Display;
+            objDel();
+            //after calling it will go to display first then to show then again to display
+            /* Display called
+               Show called
+               Display called
+            
+             * */
+
+            Console.WriteLine();
+            Console.WriteLine();
+            objDel -= Show;
+            objDel();
+            //after calling it will go to display first then to show then again to display then
+            //subratt display from here
+        /*  Display called
+Show called
+        */
+            Console.ReadLine();
+        }
+        static void Display()
+        {
+            Console.WriteLine("Display called");
+        }
+        static void Show()
+        {
+            Console.WriteLine("Show called");
+        }
+       
+
+    }
+
+}
 
 
