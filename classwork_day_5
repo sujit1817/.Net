@@ -65,4 +65,68 @@ namespace AnonymousPrc
 
        /* public static int GetDouble(int a)*/
     }
+-----------------------------------------
+//   Delegate prc
+-----------------------------------------
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DelegatePrc
+{
+    /*   public delegate void Del1();*/
+    //delegate with no papameters is defined.
+
+    public delegate int DelAdd(int a, int b);
+    public class Program
+    {
+        static void Main()
+        {
+            DelAdd obj = Add;
+            Console.WriteLine(obj(10, 50));
+            Console.ReadLine();
+
+            obj = Sub;
+            Console.WriteLine(obj(100, 20));
+            Console.ReadLine();
+
+            /* static void Main()
+             {
+                 Del1 objDel = Display;
+                 objDel();
+
+                 objDel = Show;
+                 objDel();
+                 Console.ReadLine();
+             }*/
+        }
+        public static int Add(int a, int b)
+        {
+            return a + b;
+        }
+
+        public static int Sub(int a, int b)
+        {
+            return a - b;
+        }
+
+
+            /*  public static void Display()
+                   {
+                       Console.WriteLine("Display called");
+                   }
+                public  static void Show()
+                   {
+                       Console.WriteLine("Show called");
+                   }*/
+
+        }
+
+    }
+---------------------------------------------------------------------------------------
+
+
 
