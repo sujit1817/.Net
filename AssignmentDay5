@@ -1,0 +1,20 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Assignment5
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Func<decimal, decimal, decimal, decimal> f = (p, n, r) => (p * n * r) / 100;
+            Console.WriteLine("Simple Intersetis: " + f(100, 10,12));
+            Console.ReadLine();
+        }
+       
+    }
+}
+*----------------------------
