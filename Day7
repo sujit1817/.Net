@@ -140,7 +140,27 @@ namespace AsyncPrc
         
  ------------------------------------------------------------------------------------------------------------------------
    
- 
+ static Func<string, string> objDel = Display;
+        static void Main()
+        {
+            Console.WriteLine("Before");
+            objDel.BeginInvoke("helloo", new AsyncCallback(CallBackFunction), null);
+          //  IAsyncResult ar = objDel.BeginInvoke("hello", CallBackFunction, null);
+            Console.WriteLine("After");
+            Console.ReadLine();
+        }
+        static string Display(string s)
+        {
+            Thread.Sleep(3000);
+            Console.WriteLine("Display " + s);
+            return s.ToUpper();
+        }
+        static void CallBackFunction(IAsyncResult ar)
+        {
+            Console.WriteLine("callback function called");
+            string retval = objDel.EndInvoke(ar);
+            Console.WriteLine(retval);
+        }
         
  ------------------------------------------------------------------------------------------------------------------------       
         
