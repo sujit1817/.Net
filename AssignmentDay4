@@ -241,3 +241,63 @@ namespace AssignmentDay4
 
 
 */
+--------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Day3
+{
+    class Generics
+    {
+        static void Main(String[] args)
+        {
+            Employee1[] emp = new Employee1[5];
+            emp[0]= new Employee1("Viraj",1,10000);
+            emp[1]= new Employee1("Anil",2,20000);
+            emp[2]= new Employee1("Vijay",3,30000);
+            emp[3]= new Employee1("Deven",4,40000);
+            emp[4]= new Employee1("Chetan",5,50000);
+
+            List<Employee1> list = emp.ToList<Employee1>();
+            foreach (Employee1 item in emp)
+            {
+                Console.WriteLine(item.id);
+                Console.WriteLine(item.name);
+                Console.WriteLine(item.sal);
+
+            }
+            foreach (Employee1 item in list)
+            {
+                Console.WriteLine(item.id);
+                Console.WriteLine(item.name);
+                Console.WriteLine(item.sal);
+
+            }
+        
+            Employee1[] emp1 = list.ToArray();
+            foreach (Employee1 item in emp1)
+            {
+                Console.WriteLine(item.id);
+                Console.WriteLine(item.name);
+                Console.WriteLine(item.sal);
+            }
+            Console.ReadLine();
+        }
+    }
+
+    public class Employee1
+    {
+        public string name { get; set; }
+        public int id { get; set; }
+        public long sal { get; set; }
+
+        public  Employee1(string name="sujit",int id=1,long sal=3000){
+            this.name = name;
+            this.id = id;
+            this.sal = sal;
+            }
+    }
+}
