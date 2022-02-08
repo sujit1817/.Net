@@ -69,4 +69,31 @@ namespace AsyncPrc
     }
 }
 ---------------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Threading;
+
+namespace AsyncPrc
+{
+    class Programs
+    {
+         static void Main()
+        {
+            Action objDel = Display;
+            Console.WriteLine("Before");
+            objDel.BeginInvoke(null, null);
+            Console.WriteLine("After");
+            Console.ReadLine();
+        }
+        static void Display()
+        {
+            Thread.Sleep(3000);
+            Console.WriteLine("Hello Display is called");
+           
+        }
+    }
+}
 
