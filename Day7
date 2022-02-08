@@ -1,0 +1,27 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AsyncPrc
+{
+    public delegate void Print(int val); //declare
+    class Program
+    {
+        static void ConsolePrint(int i)
+        {
+            Console.WriteLine(i);
+            Console.ReadLine();
+        }
+
+        static void Main(string[] args)
+        {
+            Action<int> print = ConsolePrint;
+            print(100);
+          /*  Print prnt = ConsolePrint; // delegate obj pointing to method
+            prnt(100); // callling using delegate obj*/
+        }
+    }
+}
+------------------------------------------------------------------------------------
