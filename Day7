@@ -115,11 +115,32 @@ namespace AsyncPrc
       
  ------------------------------------------------------------------------------------------------------------------------
         
-        
+         static void Main()
+        {
+            Func<string, string> objDel = Display;
+            Console.WriteLine("Before");
+            objDel.BeginInvoke("abc", new AsyncCallback(CallBackFunction), null);
+            // objDel.BeginInvoke("abc", CallBackFunction, null);
+            Console.WriteLine("After");
+            Console.ReadLine();
+        }
+
+        static string Display(string s)
+        {
+            Thread.Sleep(3000);
+            Console.WriteLine("Display "+s);
+            return s.ToUpper();
+            // why ToUpper is used if it is for upper case then why not
+            // working? without that we are getting same o/p
+        }
+        static void CallBackFunction(IAsyncResult ar)
+        {
+            Console.WriteLine("callback function called");
+        }      
         
  ------------------------------------------------------------------------------------------------------------------------
    
-       
+ 
         
  ------------------------------------------------------------------------------------------------------------------------       
         
